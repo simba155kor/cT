@@ -1,0 +1,9 @@
+
+
+int findParent(int now)
+{
+    if(parent[now]==now) return now;
+    else return parent[now] = findParent(parent[now]);
+}
+
+
