@@ -23,3 +23,28 @@
 //즉 모든 간선을 고려하면서 짧은 거 부터 찾아간다.
 
 //if(dist[now_spot] < len) continue; 이거를 추가해서 더 갈 필요없는 거는 제거하자.
+
+
+
+
+//경로추적
+//최단거리 찾아가면서 방문한 부모를 저장해둔다.
+for(int a=1; a<=n; a++) parent[a] = a;
+
+if(dis[next_node] > len + next_len)
+{
+    dis[next_node] = len + next_len;
+    PQ.push({dis[next_node], next_node});
+    parent[next_node] = now_node;
+}
+
+void show_route(int end)
+{
+    cout << end << "의 부모 : " << end << " ";
+    while( parent[end] != end)
+    {
+        end = parent[end];
+        cout << end << " ";
+    }
+    cout << "\n";
+}
